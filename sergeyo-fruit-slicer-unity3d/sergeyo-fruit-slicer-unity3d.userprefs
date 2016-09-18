@@ -1,0 +1,16 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Spawner.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Coll.js" Line="16" Column="47" />
+      <File FileName="Assets\Scripts\Target.cs" Line="10" Column="33" />
+      <File FileName="Assets\Scripts\JointPositionOrientation.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Spawner.cs" Line="60" Column="40" />
+      <File FileName="Assets\Scripts\Main.cs" Line="21" Column="24" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
