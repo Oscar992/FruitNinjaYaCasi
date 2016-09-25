@@ -45,13 +45,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\BodySourceManager.cs" />
-     <Compile Include="Assets\Scripts\BodySourceView.cs" />
      <Compile Include="Assets\Scripts\Collision.cs" />
      <Compile Include="Assets\Scripts\DisableOnStart.cs" />
+     <Compile Include="Assets\Scripts\GameOver.cs" />
      <Compile Include="Assets\Scripts\JointPositionOrientation.cs" />
      <Compile Include="Assets\Scripts\Katana.cs" />
      <Compile Include="Assets\Scripts\Main.cs" />
+     <Compile Include="Assets\Scripts\Scores.cs" />
      <Compile Include="Assets\Scripts\Spawner.cs" />
      <Compile Include="Assets\Scripts\StartGame.cs" />
      <Compile Include="Assets\Scripts\Target.cs" />

@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using Kinect = Windows.Kinect;
 using Windows.Kinect;
 
@@ -17,6 +17,7 @@ public class BodySourceView : MonoBehaviour
 	public Canvas canvas;
     private Button[] buttons;
 	private Image[] images;
+	//bool isMenu 
 
 	public static int opcionMenu;
 
@@ -174,18 +175,24 @@ public class BodySourceView : MonoBehaviour
 					{
 						if( button == buttons[0] )//Con Vidas
 						{
-							Application.LoadLevel("Game");	
-
 							opcionMenu = 0;
+							SceneManager.LoadScene("GameFN");		
+
+						
 						}
 						else if (button == buttons[1])//Con tiempo
 						{
-							Application.LoadLevel("Game");
 							opcionMenu = 1;
+							SceneManager.LoadScene("GameFN");	
+							//Application.LoadLevel("Game");
+						
 
 						}else if(button == buttons[2]) //Scores
 						{
 							opcionMenu = 2;
+							SceneManager.LoadScene("Score");	
+
+							//Application.LoadLevel("Score");
 						}
 					}
 				}
@@ -201,10 +208,10 @@ public class BodySourceView : MonoBehaviour
         {
             GameObject jointObj = GameObject.CreatePrimitive(PrimitiveType.Cube);
             
-            LineRenderer lr = jointObj.AddComponent<LineRenderer>();
-            lr.SetVertexCount(2);
-            lr.material = BoneMaterial;
-            lr.SetWidth(0.05f, 0.05f);
+            //LineRenderer lr = jointObj.AddComponent<LineRenderer>();
+            //lr.SetVertexCount(2);
+           // lr.material = BoneMaterial;
+           // lr.SetWidth(0.05f, 0.05f);
             
             jointObj.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
             jointObj.name = jt.ToString();
@@ -229,16 +236,16 @@ public class BodySourceView : MonoBehaviour
             Transform jointObj = bodyObject.transform.FindChild(jt.ToString());
             jointObj.localPosition = GetVector3FromJoint(sourceJoint);
             
-            LineRenderer lr = jointObj.GetComponent<LineRenderer>();
+          //  LineRenderer lr = jointObj.GetComponent<LineRenderer>();
             if(targetJoint.HasValue)
             {
-                lr.SetPosition(0, jointObj.localPosition);
-                lr.SetPosition(1, GetVector3FromJoint(targetJoint.Value));
-                lr.SetColors(GetColorForState (sourceJoint.TrackingState), GetColorForState(targetJoint.Value.TrackingState));
+             //   lr.SetPosition(0, jointObj.localPosition);
+             //   lr.SetPosition(1, GetVector3FromJoint(targetJoint.Value));
+              //  lr.SetColors(GetColorForState (sourceJoint.TrackingState), GetColorForState(targetJoint.Value.TrackingState));
             }
             else
             {
-                lr.enabled = false;
+                //lr.enabled = false;
             }
         }
     }

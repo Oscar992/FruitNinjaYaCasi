@@ -24,7 +24,6 @@ public class JointPositionOrientation : MonoBehaviour
     {
 
 	}
-
 	// Update is called once per frame
 	void Update () 
     {

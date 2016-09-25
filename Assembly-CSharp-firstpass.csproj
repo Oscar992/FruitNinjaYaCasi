@@ -45,6 +45,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Standard Assets\BodySourceManager.cs" />
+     <Compile Include="Assets\Standard Assets\BodySourceView.cs" />
      <Compile Include="Assets\Standard Assets\CameraIntrinsics.cs" />
      <Compile Include="Assets\Standard Assets\CollectionMap.cs" />
      <Compile Include="Assets\Standard Assets\EventPump.cs" />
