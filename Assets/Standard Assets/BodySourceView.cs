@@ -19,7 +19,8 @@ public class BodySourceView : MonoBehaviour
 	private Image[] images;
 	//bool isMenu 
 
-	public static int opcionMenu;
+	public static int opcionMenu;	
+
 
     private Dictionary<Kinect.JointType, Kinect.JointType> _BoneMap = new Dictionary<Kinect.JointType, Kinect.JointType>()
     {
@@ -175,7 +176,12 @@ public class BodySourceView : MonoBehaviour
 					{
 						if( button == buttons[0] )//Con Vidas
 						{
+							
 							opcionMenu = 0;
+							if (VariablesGlobales.volverAlMenu) {
+								SceneManager.LoadScene("Menu");
+								return;
+							}	
 							SceneManager.LoadScene("GameFN");		
 
 						
@@ -191,7 +197,7 @@ public class BodySourceView : MonoBehaviour
 						{
 							opcionMenu = 2;
 							SceneManager.LoadScene("Score");	
-
+							VariablesGlobales.volverAlMenu = true;
 							//Application.LoadLevel("Score");
 						}
 					}

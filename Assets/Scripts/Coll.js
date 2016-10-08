@@ -29,9 +29,11 @@ static var lastScoreLifes:int;
 static var lastScore:int;//Se muestra en la pantalla del GameOver
 
 private var csScript : BodySourceView; 
+private var csScriptVariablesGlobales : VariablesGlobales; 
 
 function OnCollisionEnter (col:Collision)
 	{
+	Debug.Log("katana colision");
 
 	var SliceHit : GameObject;
 		SliceHit = col.gameObject;
@@ -73,6 +75,7 @@ function OnCollisionEnter (col:Collision)
 			
 						PlayerPrefs.SetInt("lastScoreLifes",scoreLifes);
 						PlayerPrefs.SetInt("LastScore",lastScore);
+						csScriptVariablesGlobales.volverAlMenu = true;
 				  		Application.LoadLevel("GameOver");					
 				  	}
 			}
@@ -93,6 +96,7 @@ function OnCollisionEnter (col:Collision)
 
 					PlayerPrefs.SetInt("lastScoreTime",scoreTime);
 					PlayerPrefs.SetInt("LastScore",lastScore);
+					csScriptVariablesGlobales.volverAlMenu = true;
 					Application.LoadLevel("GameOver");
 				}
 			}
@@ -160,6 +164,7 @@ function OnCollisionEnter (col:Collision)
 	function Start () {
 	 csScript = this.GetComponent("BodySourceView");
 
+	 csScriptVariablesGlobales = this.GetComponent("VariablesGlobales");
 
 	 if(csScript.opcionMenu == 0)
 		Debug.Log("Modo Vidas");

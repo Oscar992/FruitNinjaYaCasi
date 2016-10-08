@@ -58,6 +58,7 @@
      <Compile Include="Assets\Standard Assets\NativeWrapper.cs" />
      <Compile Include="Assets\Standard Assets\SmartGCHandle.cs" />
      <Compile Include="Assets\Standard Assets\ThreadSafeDictionary.cs" />
+     <Compile Include="Assets\Standard Assets\VariablesGlobales.cs" />
      <Compile Include="Assets\Standard Assets\Windows\Data\PropertyChangedEventArgs.cs" />
      <Compile Include="Assets\Standard Assets\Windows\Kinect\Activity.cs" />
      <Compile Include="Assets\Standard Assets\Windows\Kinect\Appearance.cs" />
@@ -133,6 +134,7 @@
      <Compile Include="Assets\Standard Assets\Windows\Kinect\TrackingState.cs" />
      <Compile Include="Assets\Standard Assets\Windows\Kinect\Vector4.cs" />
      <None Include="Assets\Fuse Bomb\readme.txt" />
+     <None Include="Assets\Resources\OFL.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

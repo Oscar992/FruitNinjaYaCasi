@@ -35,14 +35,10 @@ public class Main : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
+		
+		
 
-		float distanceBetweenCameras = 30;
-		cameraDerecha.transform.position = new Vector3 (-distanceBetweenCameras,0.0f,0.0f);
-		cameraTrasera.transform.position = new Vector3 (0.0f,0.0f,-distanceBetweenCameras);
-		cameraFrontal.transform.position = new Vector3 (0.0f,0.0f,distanceBetweenCameras);
-		cameraIzquierda.transform.position = new Vector3 (distanceBetweenCameras,0.0f,0.0f);
-
-		float fixCamera = 2.88f;
+	float fixCamera = 2.88f;
 		//renderCubeDerecha.transform.position = new Vector3 (2.0f,0f,0f);
 		renderCubeDerecha.transform.position = new Vector3 (centerOfView.transform.position.x+fixCamera,centerOfView.transform.position.y,centerOfView.transform.position.z);
 		renderCubeDerecha.transform.localScale = new Vector3 (fixCamera ,fixCamera ,0.1f);
@@ -55,6 +51,14 @@ public class Main : MonoBehaviour {
 
 		renderCubeIzquierda.transform.position = new Vector3 (centerOfView.transform.position.x-fixCamera,centerOfView.transform.position.y,centerOfView.transform.position.z);
 		renderCubeIzquierda.transform.localScale = new Vector3 (fixCamera ,fixCamera ,0.1f);
+		
+		float distanceBetweenCameras = 30;
+		cameraDerecha.transform.position = new Vector3 (-distanceBetweenCameras,0.0f,0.0f);
+		cameraTrasera.transform.position = new Vector3 (0.0f,0.0f,-distanceBetweenCameras);
+		cameraFrontal.transform.position = new Vector3 (0.0f,0.0f,distanceBetweenCameras);
+		cameraIzquierda.transform.position = new Vector3 (distanceBetweenCameras,0.0f,0.0f);
+
+		
 
 		if(Input.GetMouseButton(0)) 
 		{
