@@ -7,11 +7,14 @@ public class GameOver : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		score.text = "Tu Puntaje "+ PlayerPrefs.GetInt ("LastScore").ToString (); 
+		string pText = "Tu puntaje" + PlayerPrefs.GetInt ("LastScore");
+		Debug.Log(pText);
+		score.text = pText /*"Tu Puntaje "+ PlayerPrefs.GetInt ("LastScore")*/; 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+	//	Debug.Log("Tu puntaje" + PlayerPrefs.GetInt ("LastScore"));
+	//	score.text = "Tu Puntaje "+ PlayerPrefs.GetInt ("LastScore"); 
 	}
 }

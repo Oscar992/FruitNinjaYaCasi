@@ -26,7 +26,9 @@ static var scoreLifes5:int;
 static var lastScoreTime:int;
 static var lastScoreLifes:int;
 
-static var lastScore:int;//Se muestra en la pantalla del GameOver
+static var lastScore:int;
+static var scoreLifes:int;
+//Se muestra en la pantalla del GameOver
 
 private var csScript : BodySourceView; 
 private var csScriptVariablesGlobales : VariablesGlobales; 
@@ -37,13 +39,12 @@ function OnCollisionEnter (col:Collision)
 
 	var SliceHit : GameObject;
 		SliceHit = col.gameObject;
-				if(SliceHit.tag == "Fruit" || SliceHit.tag == "Bomb")
-		{
 
-		var scr=0;
+		if(SliceHit.tag == "Fruit" || SliceHit.tag == "Bomb")
+		{
+		var scr;
 		var lfe;
 		var tm;
-
 			if(SliceHit.tag == "Fruit")
 			{
 				scr = int.Parse(score.text) + 100;
@@ -55,10 +56,9 @@ function OnCollisionEnter (col:Collision)
 		    	}
 			}
 			else
-			{
-				if((int.Parse(score.text) - 200) >= 0)
-				  scr = int.Parse(score.text) - 200;
-
+			{				
+				//f((int.Parse(score.text) - 200) >= 0)
+				  scr = int.Parse(score.text);
 			if(csScript.opcionMenu == 0)//con vidas
 			{
 					lfe = int.Parse(lifes.text) -1;
@@ -66,13 +66,8 @@ function OnCollisionEnter (col:Collision)
 
 					if(int.Parse(lifes.text) == 0 )
 					{
-
-				//	if( scoreLifes != null && lastScore != null && scr != null)
-				//	{
 						scoreLifes = scr;
 						lastScore = scr;
-				//	}
-			
 						PlayerPrefs.SetInt("lastScoreLifes",scoreLifes);
 						PlayerPrefs.SetInt("LastScore",lastScore);
 						csScriptVariablesGlobales.volverAlMenu = true;
@@ -82,18 +77,15 @@ function OnCollisionEnter (col:Collision)
 
 			if(csScript.opcionMenu == 1)//con tiempo
 			{
-					tm = int.Parse(time.text) -10;
-					time.text = tm.ToString();
 
+				tm = int.Parse(time.text) -10;
+				time.text = tm.ToString();
+	
 				if(int.Parse(time.text)<=0)
 				{
-
-				//	if( scoreTime != null && lastScore != null && scr != null)
-				//	{
 						scoreTime = scr;
 						lastScore = scr;
-				//	}
-
+		
 					PlayerPrefs.SetInt("lastScoreTime",scoreTime);
 					PlayerPrefs.SetInt("LastScore",lastScore);
 					csScriptVariablesGlobales.volverAlMenu = true;
@@ -133,8 +125,6 @@ function OnCollisionEnter (col:Collision)
 
 
 			if(SliceHit.name == 'Bomb(Clone)') {
-
-		
 				var exp = SliceHit.GetComponent.<ParticleSystem>();
 				exp.Play();
 				explosion.Play();	
@@ -163,54 +153,30 @@ function OnCollisionEnter (col:Collision)
 
 	function Start () {
 	 csScript = this.GetComponent("BodySourceView");
-
 	 csScriptVariablesGlobales = this.GetComponent("VariablesGlobales");
-
-	 if(csScript.opcionMenu == 0)
-		Debug.Log("Modo Vidas");
-
-	if(csScript.opcionMenu == 1)
-		Debug.Log("Modo Tiempo");
-
-	if(csScript.opcionMenu == 2)
-		Debug.Log("Scores");
-
-
-//	 PlayerPrefs.SetInt("scoreTime1",0);
-//	 PlayerPrefs.SetInt("scoreTime2",0);
-//	 PlayerPrefs.SetInt("scoreTime3",0);
-//	 PlayerPrefs.SetInt("scoreTime4",0);
-//	 PlayerPrefs.SetInt("scoreTime5",0);
-//
-//	 PlayerPrefs.SetInt("scoreLifes1",0);
-//	 PlayerPrefs.SetInt("scoreLifes2",0);
-//	 PlayerPrefs.SetInt("scoreLifes3",0);
-//	 PlayerPrefs.SetInt("scoreLifes4",0);
-//	 PlayerPrefs.SetInt("scoreLifes5",0);
-//
-//	 PlayerPrefs.SetInt("lastScoreTime",0);
-//	 PlayerPrefs.SetInt("lastScoreLifes",0);
 
 	 if(csScript.opcionMenu == 1)//con tiempo
 	 {
-	  lifes.enabled = false;
-	  lifes.text ="-----";
-	  	CountDown();
-	  	Debug.Log("Con Tiempo");
+		 //lifes.enabled = false;
+		 //lifes.GetComponent.<UnityEngine.UI.Text>().enabled = false;
+		 //lifes.GetComponent.<UnityEngine.UI.Text>().text = "-";
+	     lifes.text ="-";
+	     Debug.Log("Con Tiempo");
+	     CountDown();
+		 
 	 }
 	   if(csScript.opcionMenu == 0)//con vidas
 	   {
-	    time.enabled = false;
-	     time.text ="-----";
-	   	Debug.Log("Con Vidas");
-	  }
-	   
-	  
-	  
+		 // time.enabled = false;
+		 // time.GetComponent.<UnityEngine.UI.Text>().enabled = false;
+		// time.GetComponent.<UnityEngine.UI.Text>().text = "-";
+	     time.text = "-";
+		 //time.text ="CON VIDAS";
+		 //  Debug.Log("Con Vidas");
+	   }
 	}
 		
 	function Update () {
-
 	}
 
 	function CountDown()
@@ -219,7 +185,7 @@ function OnCollisionEnter (col:Collision)
 	    time.text = curTime.ToString ();
 			if(curTime > 0) {
 				Invoke("CountDown",1);
-	}
+		}
 
 	}
 

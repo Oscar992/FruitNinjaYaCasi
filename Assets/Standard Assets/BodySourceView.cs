@@ -8,6 +8,10 @@ using Windows.Kinect;
 
 public class BodySourceView : MonoBehaviour 
 {
+	protected float yScale = 0;
+	public float scale;
+	public float smoothMovement;
+	protected CameraSpacePoint pos;
     public Material BoneMaterial;
     public GameObject BodySourceManager;
 	public GameObject HandCursor;  
@@ -129,20 +133,11 @@ public class BodySourceView : MonoBehaviour
 				var positionizq = izquierda.Position;
 				var positionder = derecha.Position;
 
-				//var pointColor = positionizq.ToPoint(Visualization.Color);
-				//var pointColorder = positionder.ToPoint(Visualization.Color);
-
-				CameraSpacePoint cameraPoint = izquierda.Position;
 				CameraSpacePoint cameraPoint2 = derecha.Position;
 
-				//shapes.changeSize(cursores.cursores);
-				//ColorSpacePoint colorPoint = _BodyManager.getSensor().CoordinateMapper.MapCameraPointToColorSpace(cameraPoint);
-				//ColorSpacePoint colorPoint2 = _BodyManager.getSensor().CoordinateMapper.MapCameraPointToColorSpace(cameraPoint2);
-				//DepthSpacePoint depthPoint = _BodyManager.getSensor().CoordinateMapper.MapCameraPointToDepthSpace(cameraPoint);
-				//Debug.Log ("Llegooooo");
-					
-				this.HandCursor.transform.localPosition = new Vector3(cameraPoint2.X * 200, cameraPoint2.Y * 200, this.HandCursor.transform.localPosition.z);			
-			
+				pos = derecha.Position;
+				HandCursor.transform.localPosition = Vector3.Lerp(HandCursor.transform.localPosition,new Vector3(pos.X*scale, pos.Y*scale-yScale, this.HandCursor.transform.localPosition.z)-HandCursor.transform.localPosition,Time.deltaTime*smoothMovement);
+
 				//---
 				//if (body.HandRightState == HandState.Closed) 
 				//{
